@@ -1,56 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1220">
-  <meta name="description" content="Glacier VPN — découvrez notre projet de confidentialité en ligne.">
-  <title>Glacier VPN — Your privacy, your freedom</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Glacier VPN — un projet de confidentialité en ligne.">
+  <title>Glacier VPN — Votre espace privé</title>
   <style>
-    :root{color-scheme:dark;--bg:#0b1220;--panel:#121e30;--panel2:#18283d;--text:#f4f8ff;--muted:#a8b7ca;--blue:#4aa3ff;--cyan:#6ce5ef;--line:#263b54}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(ellipse at 50% -15%,#1b4168 0,transparent 48%),var(--bg);color:var(--text)}
-    a{color:inherit;text-decoration:none}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
-    header{position:sticky;top:0;z-index:5;background:#0b1220dd;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff12}
-    nav{height:74px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:850;letter-spacing:1.5px;font-size:20px}.brand span{color:var(--cyan)}.links{display:flex;gap:28px;color:var(--muted);font-size:14px}.links a:hover{color:white}
-    .hero{padding:100px 0 76px;text-align:center}.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:8px 13px;border:1px solid #6ce5ef55;border-radius:99px;color:var(--cyan);font-size:12px;letter-spacing:1.4px;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
-    h1{font-size:clamp(42px,7vw,76px);line-height:1.03;letter-spacing:-3px;margin:25px 0 18px}.gradient{background:linear-gradient(90deg,#fff,#73d9ff);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{max-width:650px;margin:0 auto;color:var(--muted);font-size:18px;line-height:1.7}.actions{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:32px}.btn{border:0;border-radius:12px;padding:14px 22px;font-weight:750;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:.2s}.primary{background:linear-gradient(120deg,#2688ed,#42c4e8);color:#061322;box-shadow:0 8px 30px #2688ed33}.primary:hover{transform:translateY(-2px);filter:brightness(1.08)}.secondary{border:1px solid var(--line);background:#ffffff08;color:var(--text)}
-    .section{padding:55px 0}.section-head{text-align:center;margin-bottom:30px}.section-head h2{font-size:32px;margin:0 0 10px}.section-head p{color:var(--muted);margin:0}
-    .servers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:760px;margin:auto}.server{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;align-items:center;gap:16px}.flag{font-size:36px}.server h3{margin:0 0 5px}.server p{margin:0;color:var(--muted);font-size:13px}.tag{margin-left:auto;border:1px solid #e5b65c55;color:#f1c879;padding:6px 9px;border-radius:99px;font-size:11px;white-space:nowrap}
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{background:#ffffff06;border:1px solid var(--line);border-radius:16px;padding:22px}.feature .symbol{font-size:23px}.feature h3{margin:13px 0 8px}.feature p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}
-    .notice{max-width:850px;margin:10px auto 0;padding:17px 19px;border:1px solid #e5b65c55;background:#e5b65c0d;border-radius:14px;color:#f2d9a5;font-size:13px;line-height:1.6}
-    footer{border-top:1px solid #ffffff12;padding:26px 0;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    @media(max-width:700px){.links{gap:14px;font-size:12px}.brand{font-size:17px}.hero{padding:76px 0 55px}.servers,.features{grid-template-columns:1fr}.server{padding:19px}.tag{font-size:10px}}
+    :root {
+      --bg: #07111f;
+      --panel: #101e30;
+      --panel2: #14263b;
+      --text: #f4f8ff;
+      --muted: #a5b5c9;
+      --blue: #56b8ff;
+      --cyan: #79e1e8;
+      --line: rgba(160,190,225,.16);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      background:
+        radial-gradient(circle at 80% 5%, rgba(39,139,210,.18), transparent 30rem),
+        radial-gradient(circle at 10% 35%, rgba(53,191,213,.09), transparent 28rem),
+        var(--bg);
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(7,17,31,.82); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:850; letter-spacing:.08em; }
+    .logo {
+      width: 42px; height: 42px; border-radius: 14px; display:grid; place-items:center;
+      background: linear-gradient(145deg, #67d8ed, #2878d0);
+      box-shadow: 0 8px 28px rgba(48,160,220,.3);
+    }
+    .logo svg { width: 26px; height: 26px; }
+    .links { display:flex; gap:28px; color:var(--muted); font-size:14px; }
+    .links a:hover { color:white; }
+    .nav-cta, .button {
+      border: 0; border-radius: 12px; padding: 12px 17px; font-weight:750;
+      color:#061525; background:linear-gradient(110deg,var(--cyan),var(--blue));
+      cursor:pointer; display:inline-flex; align-items:center; justify-content:center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .nav-cta:hover, .button:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(60,170,230,.22); }
+    .hero { padding: 94px 0 78px; display:grid; grid-template-columns:1.15fr .85fr; gap:55px; align-items:center; }
+    .eyebrow { display:inline-flex; gap:9px; align-items:center; border:1px solid var(--line); color:#b8d9ef; padding:8px 12px; border-radius:99px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+    .pulse { width:8px; height:8px; background:#65dfb0; border-radius:50%; box-shadow:0 0 0 0 rgba(101,223,176,.55); animation:pulse 1.8s infinite; }
+    h1 { font-size:clamp(42px,6vw,72px); line-height:1.02; letter-spacing:-.055em; margin:22px 0; }
+    .gradient { background:linear-gradient(100deg,#fff 15%,#7ed9ef 70%,#67aaff); color:transparent; background-clip:text; }
+    .lead { color:var(--muted); line-height:1.8; font-size:17px; max-width:590px; }
+    .hero-actions { display:flex; gap:13px; flex-wrap:wrap; margin-top:30px; }
+    .button.secondary { color:#e8f4ff; background:var(--panel2); border:1px solid var(--line); }
+    .visual { min-height:360px; display:grid; place-items:center; position:relative; }
+    .orb {
+      width:min(330px,75vw); aspect-ratio:1; border-radius:50%; position:relative;
+      background:radial-gradient(circle at 35% 28%,#c4f6ff 0,#63cce9 10%,#2376b9 38%,#102b4d 68%,#091525 75%);
+      box-shadow:inset -24px -25px 55px rgba(0,0,0,.45), 0 0 90px rgba(49,165,220,.2);
+      animation:float 5s ease-in-out infinite;
+    }
+    .orb:before,.orb:after { content:""; position:absolute; inset:-20px; border:1px solid rgba(115,220,255,.35); border-radius:50%; transform:rotate(-25deg) scaleY(.34); }
+    .orb:after { inset:-42px; transform:rotate(48deg) scaleY(.3); border-color:rgba(115,220,255,.18); }
+    .orb-core { position:absolute; inset:0; display:grid; place-items:center; }
+    .orb-core svg { width:110px; filter:drop-shadow(0 5px 22px rgba(255,255,255,.3)); }
+    section { padding:70px 0; }
+    .section-head { max-width:650px; margin-bottom:28px; }
+    h2 { font-size:clamp(28px,4vw,42px); letter-spacing:-.04em; margin:0 0 12px; }
+    .section-head p { color:var(--muted); line-height:1.7; margin:0; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .card { background:linear-gradient(145deg,rgba(20,38,59,.92),rgba(12,26,43,.92)); border:1px solid var(--line); border-radius:19px; padding:24px; }
+    .card-icon { width:44px; height:44px; display:grid; place-items:center; border-radius:13px; background:rgba(86,184,255,.12); font-size:21px; margin-bottom:18px; }
+    .card h3 { margin:0 0 9px; font-size:18px; }
+    .card p { color:var(--muted); line-height:1.65; font-size:14px; margin:0; }
+    .server-list { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .server { display:flex; align-items:center; justify-content:space-between; gap:15px; }
+    .server-left { display:flex; align-items:center; gap:13px; }
+    .flag { font-size:28px; }
+    .server small { color:var(--muted); display:block; margin-top:4px; }
+    .tag { color:#f6d58c; border:1px solid rgba(246,213,140,.25); background:rgba(246,213,140,.08); border-radius:99px; padding:6px 10px; font-size:11px; white-space:nowrap; }
+    .download-box { display:flex; align-items:center; justify-content:space-between; gap:25px; padding:32px; border-radius:22px; border:1px solid rgba(86,184,255,.25); background:linear-gradient(110deg,rgba(29,89,132,.28),rgba(16,30,48,.9)); }
+    .download-box p { color:var(--muted); line-height:1.7; margin-bottom:0; }
+    footer { border-top:1px solid var(--line); padding:28px 0; color:var(--muted); font-size:13px; }
+    .footer-row { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    @keyframes float { 0%,100% { transform:translateY(0) rotate(-5deg); } 50% { transform:translateY(-14px) rotate(4deg); } }
+    @keyframes pulse { 70% { box-shadow:0 0 0 9px rgba(101,223,176,0); } 100% { box-shadow:0 0 0 0 rgba(101,223,176,0); } }
+    @media (max-width:760px) {
+      .links { display:none; } .hero { grid-template-columns:1fr; padding-top:65px; gap:20px; }
+      .visual { min-height:280px; } .orb { width:245px; }
+      .grid { grid-template-columns:1fr; } .server-list { grid-template-columns:1fr; }
+      .download-box { align-items:flex-start; flex-direction:column; }
+    }
   </style>
 </head>
 <body>
-  <header><div class="wrap"><nav>
-    <a class="brand" href="#accueil">❄ GLACIER<span> VPN</span></a>
-    <div class="links"><a href="#serveurs">Serveurs</a><a href="#avantages">À propos</a></div>
-  </nav></div></header>
-  <main>
-    <section class="hero wrap" id="accueil">
-      <div class="eyebrow"><span class="dot"></span> Un projet en construction</div>
-      <h1><span class="gradient">Your privacy.</span><br>Your freedom.</h1>
-      <p class="lead">Bienvenue sur Glacier VPN. Nous construisons un projet qui met la simplicité et la confidentialité au cœur de l'expérience en ligne.</p>
-      <div class="actions"><a class="btn primary" href="#serveurs">Découvrir les serveurs</a><a class="btn secondary" href="#avantages">En savoir plus</a></div>
-    </section>
-    <section class="section wrap" id="serveurs">
-      <div class="section-head"><h2>Nos emplacements</h2><p>Les emplacements prévus pour le projet.</p></div>
-      <div class="servers">
-        <article class="server"><div class="flag">🇺🇸</div><div><h3>États-Unis</h3><p>Emplacement prévu</p></div><span class="tag">En préparation</span></article>
-        <article class="server"><div class="flag">🇨🇭</div><div><h3>Suisse</h3><p>Emplacement prévu</p></div><span class="tag">En préparation</span></article>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#home" aria-label="Glacier VPN accueil">
+        <span class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#061525" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4 7l16 10M20 7 4 17M8 3l4 4 4-4M8 21l4-4 4 4M2 11l5 1-2 5M22 11l-5 1 2 5"/></svg>
+        </span>
+        <span>GLACIER VPN</span>
+      </a>
+      <div class="links">
+        <a href="#avantages">Avantages</a><a href="#serveurs">Serveurs</a><a href="#telecharger">Télécharger</a><a href="#apropos">À propos</a>
       </div>
-    </section>
-    <section class="section wrap" id="avantages">
-      <div class="section-head"><h2>Le projet Glacier</h2><p>Une première présentation, simple et transparente.</p></div>
-      <div class="features">
-        <article class="feature"><div class="symbol">🔒</div><h3>Confidentialité</h3><p>La protection des données devra être une priorité dès la conception du service.</p></article>
-        <article class="feature"><div class="symbol">🌍</div><h3>Plusieurs pays</h3><p>Le projet prévoit de proposer plusieurs emplacements de connexion.</p></article>
-        <article class="feature"><div class="symbol">✨</div><h3>Facile à utiliser</h3><p>Une interface claire, pensée pour rendre les fonctionnalités faciles à comprendre.</p></article>
+      <a class="nav-cta" href="#serveurs">Découvrir</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow"><span class="pulse"></span> Projet en développement</div>
+      <h1>Votre monde.<br><span class="gradient">Votre connexion.</span></h1>
+      <p class="lead">Bienvenue chez Glacier VPN. Un projet qui vise à rendre la confidentialité en ligne plus simple, avec une interface claire et une expérience facile à comprendre.</p>
+      <div class="hero-actions">
+        <a class="button" href="#serveurs">Explorer les serveurs</a>
+        <a class="button secondary" href="#apropos">En savoir plus</a>
       </div>
-      <div class="notice"><strong>Information importante :</strong> ce site est actuellement une vitrine de présentation. Il ne fournit pas encore de connexion VPN. Les boutons et les pays présentés ne lancent aucun tunnel. Un service VPN public nécessitera des serveurs dédiés, une configuration sécurisée et des tests avant toute mise à disposition.</div>
-    </section>
-  </main>
-  <footer><div class="wrap foot"><span>© 2026 Glacier VPN — Projet indépendant</span><span>Site de présentation · Version 1.0</span></div></footer>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <div class="orb"><div class="orb-core">
+        <svg viewBox="0 0 100 100" fill="none"><path d="M50 8 79 19v25c0 21-12 37-29 48C33 81 21 65 21 44V19L50 8Z" stroke="#E8FAFF" stroke-width="5"/><path d="m36 49 9 9 20-22" stroke="#E8FAFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div></div>
+    </div>
+  </div>
+
+  <section id="avantages">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>La simplicité avant tout.</h2>
+        <p>Glacier VPN est en développement. Voici les principes qui guident le projet.</p>
+      </div>
+      <div class="grid">
+        <article class="card reveal"><div class="card-icon">🔒</div><h3>Confidentialité</h3><p>La protection des données et la transparence doivent être au cœur du projet.</p></article>
+        <article class="card reveal"><div class="card-icon">⚡</div><h3>Facile à utiliser</h3><p>Une interface claire pour comprendre les fonctionnalités sans réglages compliqués.</p></article>
+        <article class="card reveal"><div class="card-icon">🌐</div><h3>Un projet qui évolue</h3><p>De nouvelles fonctionnalités pourront être ajoutées au fil du développement.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="serveurs">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Nos emplacements de démonstration</h2>
+        <p>Ces emplacements correspondent aux configurations utilisées dans le projet personnel. Ils ne sont pas encore des serveurs publics proposés aux visiteurs.</p>
+      </div>
+      <div class="server-list">
+        <div class="card server reveal"><div class="server-left"><span class="flag">🇺🇸</span><div><strong>États-Unis</strong><small>Configuration de démonstration</small></div></div><span class="tag">Projet personnel</span></div>
+        <div class="card server reveal"><div class="server-left"><span class="flag">🇨🇭</span><div><strong>Suisse</strong><small>Configuration de démonstration</small></div></div><span class="tag">Projet personnel</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="telecharger">
+    <div class="wrap">
+      <div class="download-box reveal">
+        <div><h2>Glacier VPN pour Windows</h2><p>L'application Windows est un prototype local. Le téléchargement public n'est pas encore disponible.</p></div>
+        <span class="tag">Bientôt disponible</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>À propos de Glacier</h2>
+        <p>Glacier VPN est un projet indépendant en cours de création. Ce site présente le projet et ne fournit pas actuellement de service VPN aux visiteurs. Aucun bouton de cette page ne démarre une connexion VPN.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Glacier VPN — Projet en développement</span>
+    <span>Conçu pour être simple. Pensé pour évoluer.</span>
+  </div>
+</footer>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
