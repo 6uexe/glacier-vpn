@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,103 +17,374 @@
       --cyan: #79e1e8;
       --line: rgba(160,190,225,.16);
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
-      margin: 0; color: var(--text);
+      margin: 0;
+      color: var(--text);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
       background:
         radial-gradient(circle at 80% 5%, rgba(39,139,210,.18), transparent 30rem),
         radial-gradient(circle at 10% 35%, rgba(53,191,213,.09), transparent 28rem),
         var(--bg);
     }
+
     a { color: inherit; text-decoration: none; }
     .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+
     header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(7,17,31,.82); backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7,17,31,.82);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
     }
-    nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:850; letter-spacing:.08em; }
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
     .logo {
-      width: 42px; height: 42px; border-radius: 14px; display:grid; place-items:center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
       background: linear-gradient(145deg, #67d8ed, #2878d0);
       box-shadow: 0 8px 28px rgba(48,160,220,.3);
     }
+
     .logo svg { width: 26px; height: 26px; }
-    .links { display:flex; gap:28px; color:var(--muted); font-size:14px; }
-    .links a:hover { color:white; }
+
+    .links {
+      display: flex;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .links a:hover { color: white; }
+
     .nav-cta, .button {
-      border: 0; border-radius: 12px; padding: 12px 17px; font-weight:750;
-      color:#061525; background:linear-gradient(110deg,var(--cyan),var(--blue));
-      cursor:pointer; display:inline-flex; align-items:center; justify-content:center;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 17px;
+      font-weight: 750;
+      color: #061525;
+      background: linear-gradient(110deg,var(--cyan),var(--blue));
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: transform .2s, box-shadow .2s;
     }
-    .nav-cta:hover, .button:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(60,170,230,.22); }
-    .hero { padding: 94px 0 78px; display:grid; grid-template-columns:1.15fr .85fr; gap:55px; align-items:center; }
-    .eyebrow { display:inline-flex; gap:9px; align-items:center; border:1px solid var(--line); color:#b8d9ef; padding:8px 12px; border-radius:99px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
-    .pulse { width:8px; height:8px; background:#65dfb0; border-radius:50%; box-shadow:0 0 0 0 rgba(101,223,176,.55); animation:pulse 1.8s infinite; }
-    h1 { font-size:clamp(42px,6vw,72px); line-height:1.02; letter-spacing:-.055em; margin:22px 0; }
-    .gradient { background:linear-gradient(100deg,#fff 15%,#7ed9ef 70%,#67aaff); color:transparent; background-clip:text; }
-    .lead { color:var(--muted); line-height:1.8; font-size:17px; max-width:590px; }
-    .hero-actions { display:flex; gap:13px; flex-wrap:wrap; margin-top:30px; }
-    .button.secondary { color:#e8f4ff; background:var(--panel2); border:1px solid var(--line); }
-    .visual { min-height:360px; display:grid; place-items:center; position:relative; }
-    .orb {
-      width:min(330px,75vw); aspect-ratio:1; border-radius:50%; position:relative;
-      background:radial-gradient(circle at 35% 28%,#c4f6ff 0,#63cce9 10%,#2376b9 38%,#102b4d 68%,#091525 75%);
-      box-shadow:inset -24px -25px 55px rgba(0,0,0,.45), 0 0 90px rgba(49,165,220,.2);
-      animation:float 5s ease-in-out infinite;
+
+    .nav-cta:hover, .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(60,170,230,.22);
     }
-    .orb:before,.orb:after { content:""; position:absolute; inset:-20px; border:1px solid rgba(115,220,255,.35); border-radius:50%; transform:rotate(-25deg) scaleY(.34); }
-    .orb:after { inset:-42px; transform:rotate(48deg) scaleY(.3); border-color:rgba(115,220,255,.18); }
-    .orb-core { position:absolute; inset:0; display:grid; place-items:center; }
-    .orb-core svg { width:110px; filter:drop-shadow(0 5px 22px rgba(255,255,255,.3)); }
-    section { padding:70px 0; }
-    .section-head { max-width:650px; margin-bottom:28px; }
-    h2 { font-size:clamp(28px,4vw,42px); letter-spacing:-.04em; margin:0 0 12px; }
-    .section-head p { color:var(--muted); line-height:1.7; margin:0; }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
-    .card { background:linear-gradient(145deg,rgba(20,38,59,.92),rgba(12,26,43,.92)); border:1px solid var(--line); border-radius:19px; padding:24px; }
-    .card-icon { width:44px; height:44px; display:grid; place-items:center; border-radius:13px; background:rgba(86,184,255,.12); font-size:21px; margin-bottom:18px; }
-    .card h3 { margin:0 0 9px; font-size:18px; }
-    .card p { color:var(--muted); line-height:1.65; font-size:14px; margin:0; }
-    .server-list { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
-    .server { display:flex; align-items:center; justify-content:space-between; gap:15px; }
-    .server-left { display:flex; align-items:center; gap:13px; }
-    .flag { font-size:28px; }
-    .server small { color:var(--muted); display:block; margin-top:4px; }
-    .tag { color:#f6d58c; border:1px solid rgba(246,213,140,.25); background:rgba(246,213,140,.08); border-radius:99px; padding:6px 10px; font-size:11px; white-space:nowrap; }
-    .download-box { display:flex; align-items:center; justify-content:space-between; gap:25px; padding:32px; border-radius:22px; border:1px solid rgba(86,184,255,.25); background:linear-gradient(110deg,rgba(29,89,132,.28),rgba(16,30,48,.9)); }
-    .download-box p { color:var(--muted); line-height:1.7; margin-bottom:0; }
-    footer { border-top:1px solid var(--line); padding:28px 0; color:var(--muted); font-size:13px; }
-    .footer-row { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
-    .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-    @keyframes float { 0%,100% { transform:translateY(0) rotate(-5deg); } 50% { transform:translateY(-14px) rotate(4deg); } }
-    @keyframes pulse { 70% { box-shadow:0 0 0 9px rgba(101,223,176,0); } 100% { box-shadow:0 0 0 0 rgba(101,223,176,0); } }
+
+    .hero {
+      padding: 94px 0 78px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      border: 1px solid var(--line);
+      color: #b8d9ef;
+      padding: 8px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: #65dfb0;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(101,223,176,.55);
+      animation: pulse 1.8s infinite;
+    }
+
+    h1 {
+      font-size: clamp(42px,6vw,72px);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      margin: 22px 0;
+    }
+
+    .gradient {
+      background: linear-gradient(100deg,#fff 15%,#7ed9ef 70%,#67aaff);
+      color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 17px;
+      max-width: 590px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .button.secondary {
+      color: #e8f4ff;
+      background: var(--panel2);
+      border: 1px solid var(--line);
+    }
+
+    .visual {
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .orb {
+      width: min(330px,75vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: relative;
+      background: radial-gradient(circle at 35% 28%,#c4f6ff 0,#63cce9 10%,#2376b9 38%,#102b4d 68%,#091525 75%);
+      box-shadow: inset -24px -25px 55px rgba(0,0,0,.45), 0 0 90px rgba(49,165,220,.2);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .orb:before, .orb:after {
+      content: "";
+      position: absolute;
+      inset: -20px;
+      border: 1px solid rgba(115,220,255,.35);
+      border-radius: 50%;
+      transform: rotate(-25deg) scaleY(.34);
+    }
+
+    .orb:after {
+      inset: -42px;
+      transform: rotate(48deg) scaleY(.3);
+      border-color: rgba(115,220,255,.18);
+    }
+
+    .orb-core {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .orb-core svg {
+      width: 110px;
+      filter: drop-shadow(0 5px 22px rgba(255,255,255,.3));
+    }
+
+    section { padding: 70px 0; }
+
+    .section-head {
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: clamp(28px,4vw,42px);
+      letter-spacing: -.04em;
+      margin: 0 0 12px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 17px;
+    }
+
+    .card {
+      background: linear-gradient(145deg,rgba(20,38,59,.92),rgba(12,26,43,.92));
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      padding: 24px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: rgba(86,184,255,.12);
+      font-size: 21px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 { margin: 0 0 9px; font-size: 18px; }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .server-list {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 14px;
+    }
+
+    .server {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .server-left {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .flag { font-size: 28px; }
+
+    .server small {
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .tag {
+      color: #f6d58c;
+      border: 1px solid rgba(246,213,140,.25);
+      background: rgba(246,213,140,.08);
+      border-radius: 99px;
+      padding: 6px 10px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .download-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: 32px;
+      border-radius: 22px;
+      border: 1px solid rgba(86,184,255,.25);
+      background: linear-gradient(110deg,rgba(29,89,132,.28),rgba(16,30,48,.9));
+    }
+
+    .download-box p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-14px) rotate(4deg); }
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 9px rgba(101,223,176,0); }
+      100% { box-shadow: 0 0 0 0 rgba(101,223,176,0); }
+    }
+
     @media (max-width:760px) {
-      .links { display:none; } .hero { grid-template-columns:1fr; padding-top:65px; gap:20px; }
-      .visual { min-height:280px; } .orb { width:245px; }
-      .grid { grid-template-columns:1fr; } .server-list { grid-template-columns:1fr; }
-      .download-box { align-items:flex-start; flex-direction:column; }
+      .links { display: none; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 65px;
+        gap: 20px;
+      }
+      .visual { min-height: 280px; }
+      .orb { width: 245px; }
+      .grid, .server-list { grid-template-columns: 1fr; }
+      .download-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
 <header>
   <div class="wrap">
     <nav>
       <a class="brand" href="#home" aria-label="Glacier VPN accueil">
         <span class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#061525" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4 7l16 10M20 7 4 17M8 3l4 4 4-4M8 21l4-4 4 4M2 11l5 1-2 5M22 11l-5 1 2 5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#061525" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M4 7l16 10M20 7 4 17M8 3l4 4 4-4M8 21l4-4 4 4M2 11l5 1-2 5M22 11l-5 1 2 5"/>
+          </svg>
         </span>
         <span>GLACIER VPN</span>
       </a>
+
       <div class="links">
-        <a href="#avantages">Avantages</a><a href="#serveurs">Serveurs</a><a href="#telecharger">Télécharger</a><a href="#apropos">À propos</a>
+        <a href="#avantages">Avantages</a>
+        <a href="#serveurs">Serveurs</a>
+        <a href="#telecharger">Télécharger</a>
+        <a href="#apropos">À propos</a>
       </div>
+
       <a class="nav-cta" href="#serveurs">Découvrir</a>
     </nav>
   </div>
@@ -123,16 +395,24 @@
     <div>
       <div class="eyebrow"><span class="pulse"></span> Projet en développement</div>
       <h1>Votre monde.<br><span class="gradient">Votre connexion.</span></h1>
-      <p class="lead">Bienvenue chez Glacier VPN. Un projet qui vise à rendre la confidentialité en ligne plus simple, avec une interface claire et une expérience facile à comprendre.</p>
+      <p class="lead">
+        Bienvenue chez Glacier VPN. Un projet qui vise à rendre la confidentialité en ligne plus simple, avec une interface claire et une expérience facile à comprendre.
+      </p>
       <div class="hero-actions">
         <a class="button" href="#serveurs">Explorer les serveurs</a>
         <a class="button secondary" href="#apropos">En savoir plus</a>
       </div>
     </div>
+
     <div class="visual" aria-hidden="true">
-      <div class="orb"><div class="orb-core">
-        <svg viewBox="0 0 100 100" fill="none"><path d="M50 8 79 19v25c0 21-12 37-29 48C33 81 21 65 21 44V19L50 8Z" stroke="#E8FAFF" stroke-width="5"/><path d="m36 49 9 9 20-22" stroke="#E8FAFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div></div>
+      <div class="orb">
+        <div class="orb-core">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M50 8 79 19v25c0 21-12 37-29 48C33 81 21 65 21 44V19L50 8Z" stroke="#E8FAFF" stroke-width="5"/>
+            <path d="m36 49 9 9 20-22" stroke="#E8FAFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -142,10 +422,25 @@
         <h2>La simplicité avant tout.</h2>
         <p>Glacier VPN est en développement. Voici les principes qui guident le projet.</p>
       </div>
+
       <div class="grid">
-        <article class="card reveal"><div class="card-icon">🔒</div><h3>Confidentialité</h3><p>La protection des données et la transparence doivent être au cœur du projet.</p></article>
-        <article class="card reveal"><div class="card-icon">⚡</div><h3>Facile à utiliser</h3><p>Une interface claire pour comprendre les fonctionnalités sans réglages compliqués.</p></article>
-        <article class="card reveal"><div class="card-icon">🌐</div><h3>Un projet qui évolue</h3><p>De nouvelles fonctionnalités pourront être ajoutées au fil du développement.</p></article>
+        <article class="card reveal">
+          <div class="card-icon">🔒</div>
+          <h3>Confidentialité</h3>
+          <p>La protection des données et la transparence doivent être au cœur du projet.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">⚡</div>
+          <h3>Facile à utiliser</h3>
+          <p>Une interface claire pour comprendre les fonctionnalités sans réglages compliqués.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">🌐</div>
+          <h3>Un projet qui évolue</h3>
+          <p>De nouvelles fonctionnalités pourront être ajoutées au fil du développement.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -156,9 +451,29 @@
         <h2>Nos emplacements de démonstration</h2>
         <p>Ces emplacements correspondent aux configurations utilisées dans le projet personnel. Ils ne sont pas encore des serveurs publics proposés aux visiteurs.</p>
       </div>
+
       <div class="server-list">
-        <div class="card server reveal"><div class="server-left"><span class="flag">🇺🇸</span><div><strong>États-Unis</strong><small>Configuration de démonstration</small></div></div><span class="tag">Projet personnel</span></div>
-        <div class="card server reveal"><div class="server-left"><span class="flag">🇨🇭</span><div><strong>Suisse</strong><small>Configuration de démonstration</small></div></div><span class="tag">Projet personnel</span></div>
+        <div class="card server reveal">
+          <div class="server-left">
+            <span class="flag">🇺🇸</span>
+            <div>
+              <strong>États-Unis</strong>
+              <small>Configuration de démonstration</small>
+            </div>
+          </div>
+          <span class="tag">Projet personnel</span>
+        </div>
+
+        <div class="card server reveal">
+          <div class="server-left">
+            <span class="flag">🇨🇭</span>
+            <div>
+              <strong>Suisse</strong>
+              <small>Configuration de démonstration</small>
+            </div>
+          </div>
+          <span class="tag">Projet personnel</span>
+        </div>
       </div>
     </div>
   </section>
@@ -166,8 +481,25 @@
   <section id="telecharger">
     <div class="wrap">
       <div class="download-box reveal">
-        <div><h2>Glacier VPN pour Windows</h2><p>L'application Windows est un prototype local. Le téléchargement public n'est pas encore disponible.</p></div>
-        <span class="tag">Bientôt disponible</span>
+        <div>
+          <h2>Glacier VPN pour Windows</h2>
+          <p>Télécharge la première version publique de Glacier VPN.</p>
+          <p>Attention : cette version est une démonstration. Elle ne se connecte pas encore à un serveur VPN public.</p>
+
+          <div class="hero-actions">
+            <a class="button"
+               href="https://github.com/6uexe/glacier-vpn/raw/refs/heads/main/GlacierVPN_Public.exe">
+              Télécharger pour Windows
+            </a>
+
+            <a class="button secondary"
+               href="https://github.com/6uexe/glacier-vpn/raw/refs/heads/main/glacier_vpn_public.py">
+              Télécharger le code Python
+            </a>
+          </div>
+        </div>
+
+        <span class="tag">Version démo</span>
       </div>
     </div>
   </section>
@@ -188,6 +520,7 @@
     <span>Conçu pour être simple. Pensé pour évoluer.</span>
   </div>
 </footer>
+
 <script>
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -197,6 +530,7 @@
       }
     });
   }, { threshold: 0.12 });
+
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
