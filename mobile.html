@@ -3,142 +3,166 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071426">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Glacier VPN">
 
   <title>Glacier VPN Mobile</title>
 
   <link rel="manifest" href="./manifest.json">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Glacier VPN">
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="apple-touch-icon" href="./icon.svg">
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
-      background: #071426;
-      color: white;
       font-family: Arial, sans-serif;
+      color: white;
+      background: radial-gradient(circle at top, #12365a, #071426 65%);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 22px;
+      padding: 25px;
     }
 
-    .app {
+    .container {
       width: 100%;
-      max-width: 390px;
+      max-width: 420px;
       text-align: center;
     }
 
     .logo {
-      font-size: 30px;
-      font-weight: bold;
-      color: #38c9ff;
+      width: 105px;
+      height: 105px;
+      border-radius: 25px;
+      margin: 0 auto 18px;
+      box-shadow: 0 0 35px #38c9ff55;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
     }
 
     .subtitle {
-      color: #8ba8c4;
-      margin-top: 8px;
+      color: #a9c7df;
+      margin-bottom: 35px;
+      font-size: 14px;
+    }
+
+    .panel {
+      background: #10243b;
+      border: 1px solid #244767;
+      border-radius: 22px;
+      padding: 25px;
+      box-shadow: 0 15px 40px #0005;
     }
 
     .status {
-      margin: 38px 0 24px;
-      color: #a8bed2;
+      color: #ffca66;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 25px;
     }
 
-    .circle {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 3px solid #168acb;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 35px #087cb655;
+    label {
+      display: block;
+      text-align: left;
+      color: #b8d5eb;
+      margin-bottom: 10px;
+      font-size: 14px;
     }
 
-    .circle span {
-      font-size: 58px;
-      color: #38c9ff;
-    }
-
-    button, select {
+    select {
       width: 100%;
-      padding: 16px;
+      padding: 15px;
       border-radius: 12px;
-      border: 1px solid #2376a5;
-      background: #102b46;
+      border: 1px solid #315979;
+      background: #071426;
       color: white;
       font-size: 16px;
-      margin-top: 14px;
+      margin-bottom: 20px;
     }
 
     button {
-      background: #087fbd;
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #168bd5, #38c9ff);
+      color: #061629;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    .note {
+    button:active {
+      transform: scale(.98);
+    }
+
+    .notice {
+      margin-top: 22px;
+      color: #9eb8ce;
       font-size: 12px;
-      color: #829ab2;
-      margin-top: 28px;
       line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 25px;
+      color: #7894ad;
+      font-size: 12px;
     }
   </style>
 </head>
 
 <body>
-  <main class="app">
+  <main class="container">
+    <img class="logo" src="./icon.svg" alt="Logo Glacier VPN">
 
-    <div class="logo">❄ GLACIER VPN</div>
+    <h1>GLACIER VPN</h1>
+    <p class="subtitle">Your privacy. Your connection.</p>
 
-    <div class="subtitle">
-      Your privacy, your freedom.
-    </div>
+    <section class="panel">
+      <div class="status">● DÉMONSTRATION — NON CONNECTÉ</div>
 
-    <div class="status" id="status">
-      DÉMONSTRATION — NON CONNECTÉ
-    </div>
+      <label for="country">Choisir un emplacement</label>
 
-    <div class="circle">
-      <span>❄</span>
-    </div>
+      <select id="country">
+        <option value="us">🇺🇸 United States</option>
+        <option value="ch">🇨🇭 Switzerland</option>
+      </select>
 
-    <select id="server">
-      <option value="USA">🇺🇸 États-Unis</option>
-      <option value="CH">🇨🇭 Suisse</option>
-    </select>
+      <button onclick="connectVPN()">CONNECTER</button>
 
-    <button onclick="connect()">
-      CONNECTER
-    </button>
+      <p class="notice">
+        Aucun serveur public n'est encore configuré.
+        Cette version est une démonstration et ne crée
+        pas de tunnel VPN.
+      </p>
+    </section>
 
-    <div class="note">
-      Version de démonstration.<br>
-      Aucun serveur VPN public n'est encore configuré.<br>
-      Cette interface ne crée pas de tunnel VPN.
-    </div>
-
+    <footer>
+      Glacier VPN © 2026 — Version mobile
+    </footer>
   </main>
 
   <script>
-    function connect() {
-      document.getElementById("status").textContent =
-        "SERVEUR NON CONFIGURÉ — DÉMONSTRATION";
-
+    function connectVPN() {
       alert(
-        "Glacier VPN : aucun serveur public n'est encore disponible."
+        "GLACIER VPN\n\n" +
+        "Cette version est une démonstration.\n" +
+        "Aucun serveur VPN public n'est actuellement configuré."
       );
     }
   </script>
-
 </body>
 </html>
