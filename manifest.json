@@ -1,0 +1,11 @@
+
+{
+  "name": "Glacier VPN",
+  "short_name": "Glacier VPN",
+  "description": "Glacier VPN Mobile",
+  "start_url": "./mobile.html",
+  "display": "standalone",
+  "background_color": "#071426",
+  "theme_color": "#071426",
+  "icons": []
+}
