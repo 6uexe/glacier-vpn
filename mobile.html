@@ -2,66 +2,143 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#071426">
-<title>Glacier VPN Mobile</title>
-<style>
-*{box-sizing:border-box}
-body{
- margin:0;min-height:100vh;background:#071426;color:white;
- font-family:Arial,sans-serif;display:flex;justify-content:center;
- align-items:center;padding:22px;
-}
-.app{width:100%;max-width:390px;text-align:center}
-.logo{font-size:30px;font-weight:bold;color:#38c9ff}
-.subtitle{color:#8ba8c4;margin-top:8px}
-.status{margin:38px 0 24px;color:#a8bed2}
-.circle{
- width:180px;height:180px;border-radius:50%;
- border:3px solid #168acb;margin:auto;
- display:flex;align-items:center;justify-content:center;
- box-shadow:0 0 35px #087cb655;
-}
-.circle span{font-size:58px;color:#38c9ff}
-button,select{
- width:100%;padding:16px;border-radius:12px;
- border:1px solid #2376a5;background:#102b46;color:white;
- font-size:16px;margin-top:14px;
-}
-button{background:#087fbd;font-weight:bold;cursor:pointer}
-.note{font-size:12px;color:#829ab2;margin-top:28px;line-height:1.6}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071426">
+
+  <title>Glacier VPN Mobile</title>
+
+  <link rel="manifest" href="./manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Glacier VPN">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #071426;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 22px;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 390px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #38c9ff;
+    }
+
+    .subtitle {
+      color: #8ba8c4;
+      margin-top: 8px;
+    }
+
+    .status {
+      margin: 38px 0 24px;
+      color: #a8bed2;
+    }
+
+    .circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid #168acb;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 35px #087cb655;
+    }
+
+    .circle span {
+      font-size: 58px;
+      color: #38c9ff;
+    }
+
+    button, select {
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #2376a5;
+      background: #102b46;
+      color: white;
+      font-size: 16px;
+      margin-top: 14px;
+    }
+
+    button {
+      background: #087fbd;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #829ab2;
+      margin-top: 28px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
+
 <body>
-<main class="app">
- <div class="logo">❄ GLACIER VPN</div>
- <div class="subtitle">Your privacy, your freedom.</div>
+  <main class="app">
 
- <div class="status" id="status">DÉMONSTRATION — NON CONNECTÉ</div>
+    <div class="logo">❄ GLACIER VPN</div>
 
- <div class="circle"><span>❄</span></div>
+    <div class="subtitle">
+      Your privacy, your freedom.
+    </div>
 
- <select id="server">
-  <option value="USA">🇺🇸 États-Unis</option>
-  <option value="CH">🇨🇭 Suisse</option>
- </select>
+    <div class="status" id="status">
+      DÉMONSTRATION — NON CONNECTÉ
+    </div>
 
- <button onclick="connect()">CONNECTER</button>
+    <div class="circle">
+      <span>❄</span>
+    </div>
 
- <div class="note">
-  Version de démonstration.<br>
-  Aucun serveur VPN public n'est encore configuré.
-  Cette interface ne crée pas de tunnel VPN.
- </div>
-</main>
+    <select id="server">
+      <option value="USA">🇺🇸 États-Unis</option>
+      <option value="CH">🇨🇭 Suisse</option>
+    </select>
 
-<script>
-function connect(){
- document.getElementById("status").textContent =
- "SERVEUR NON CONFIGURÉ — DÉMONSTRATION";
- alert("Glacier VPN : aucun serveur public n'est encore disponible.");
-}
-</script>
+    <button onclick="connect()">
+      CONNECTER
+    </button>
+
+    <div class="note">
+      Version de démonstration.<br>
+      Aucun serveur VPN public n'est encore configuré.<br>
+      Cette interface ne crée pas de tunnel VPN.
+    </div>
+
+  </main>
+
+  <script>
+    function connect() {
+      document.getElementById("status").textContent =
+        "SERVEUR NON CONFIGURÉ — DÉMONSTRATION";
+
+      alert(
+        "Glacier VPN : aucun serveur public n'est encore disponible."
+      );
+    }
+  </script>
+
 </body>
 </html>
